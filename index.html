@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     html {
-      scroll-padding-top: 100px; /* Corrige le scroll pour éviter la superposition du header */
+      scroll-padding-top: 100px;
     }
   </style>
 </head>
@@ -29,14 +29,23 @@
     <header class="main-header">
       <div class="container nav-container">
         <div class="logo">NOVEA</div>
-        <nav class="navbar">
+
+        <!-- Bouton Burger -->
+        <div id="burger" class="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- Menu déroulant caché -->
+        <nav id="side-menu" class="side-menu">
           <ul>
-            <li><a href="#hero">Accueil</a></li>
-            <li><a href="#about">Qui sommes-nous</a></li>
-            <li><a href="#reasons">Pourquoi NOVEA</a></li>
-            <li><a href="#resultats">Résultats</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#hero" onclick="closeMenu()">Accueil</a></li>
+            <li><a href="#about" onclick="closeMenu()">Qui sommes-nous</a></li>
+            <li><a href="#reasons" onclick="closeMenu()">Pourquoi NOVEA</a></li>
+            <li><a href="#resultats" onclick="closeMenu()">Résultats</a></li>
+            <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -136,7 +145,7 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024 NOVEA – Only Fund Management</p>
+        <p>&copy; 2024 NOVEA – Onlyfans Management</p>
         <p><a class="whatsapp-link" href="https://wa.me/41766826445" target="_blank">WhatsApp : +41 76 682 64 45</a></p>
       </div>
     </footer>
@@ -160,6 +169,18 @@
         }, 1000);
       }, 1500);
     });
+
+    // Fonction pour ouvrir/fermer le menu
+    const burger = document.getElementById('burger');
+    const sideMenu = document.getElementById('side-menu');
+
+    burger.addEventListener('click', () => {
+      sideMenu.classList.toggle('active');
+    });
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+    }
   </script>
 </body>
 </html>
