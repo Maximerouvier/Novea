@@ -86,25 +86,61 @@ body {
   letter-spacing: 2px;
 }
 
-.navbar ul {
-  list-style: none;
+/* Burger Icon */
+.burger-menu {
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.navbar a {
-  color: var(--gris-fonce);
-  text-decoration: none;
-  padding: 8px 12px;
-  font-weight: 500;
-  border-radius: 5px;
-  transition: all 0.3s;
+.burger-menu span {
+  display: block;
+  height: 4px;
+  background-color: var(--blanc);
+  border-radius: 2px;
 }
 
-.navbar a:hover {
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
   background-color: var(--turquoise);
-  color: var(--blanc);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px;
+  transition: right 0.3s ease;
+  z-index: 9998;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  margin-bottom: 20px;
+}
+
+.side-menu ul li a {
+  color: var(--gris-fonce);
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.side-menu ul li a:hover {
+  color: var(--rose);
 }
 
 /* ------------------ SECTIONS ------------------ */
@@ -216,7 +252,7 @@ section {
 .contact-card a {
   color: var(--gris-fonce);
   font-weight: bold;
-  word-break: break-all;
+  word-break: break-word;
   text-decoration: none;
 }
 
@@ -301,15 +337,6 @@ body.page-candidature .form-section {
 
 /* ------------------ RESPONSIVE ------------------ */
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .navbar ul {
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
-  }
   .hero-section h1 {
     font-size: 32px;
   }
